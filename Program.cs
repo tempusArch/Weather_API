@@ -17,7 +17,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 {
     var connectionMultiplexer = ConnectionMultiplexer
-        .Connect(builder.Configuration["redisConnectionString"] ?? "localhost");
+        .Connect(builder.Configuration["Redis:ConnectionString"] ?? "localhost");
 
         return connectionMultiplexer;
     
@@ -51,7 +51,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseRateLimiter();
-
 app.MapControllers().RequireRateLimiting("fixed_window");
 
 app.Run();

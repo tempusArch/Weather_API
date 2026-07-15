@@ -16,11 +16,7 @@ public class WeatherController : ControllerBase {
     private readonly IConfiguration _config;
     private readonly IDatabase _redisDatabase;
     
-    public WeatherController(ILogger<WeatherController> logger,
-        HttpClient httpClient,
-        IConfiguration config,
-        IConnectionMultiplexer redisConnectionMultiplexer) 
-    {
+    public WeatherController(ILogger<WeatherController> logger, HttpClient httpClient, IConfiguration config, IConnectionMultiplexer redisConnectionMultiplexer) {
         _logger = logger;
         _httpClient = httpClient;
         _config = config;
