@@ -37,8 +37,7 @@ public class WeatherController : ControllerBase {
                     return Ok(JsonSerializer.Deserialize<object>(cachedWeatherIntel));
 
             } else {
-                var query = new Dictionary<string, string> 
-                { {
+                var query = new Dictionary<string, string> { {
                     "key", _config["WEATHER_API_KEY"] ?? string.Empty
                 } };
 
